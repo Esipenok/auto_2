@@ -1,0 +1,22 @@
+name: Autotest #даем название
+
+on:
+  push #когда будет запускаться
+
+jobs: #это задачи, которые будут выполнятся
+  test: #сама задача - потестить
+    runs-on: ubuntu-latest #запустить на убунту последней
+
+    steps:
+      - name: Checkout repository #на убунту нужно скачать весь репозиторий
+        uses: actions/checkout@v3
+      - name: setup Python #Установить питон
+        uses: actions/setup-python@v4
+        with: #с какой версией
+          python-version: "3.9"
+      - name: Install Chrome #Установить хром
+        run: sudo apt-get install google-chrome-stable
+      - name: install dependencies #Установить зависимости из указанного файла
+        run: pip install -r requirements.txt
+      - name: Run tests #Запустить сам тест, по команде, которая указать ниже
+        run: pytest
