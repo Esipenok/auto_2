@@ -9,11 +9,11 @@ jobs: #это задачи, которые будут выполнятся
 
     steps:
       - name: Checkout repository #на убунту нужно скачать весь репозиторий
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: setup Python #Установить питон
         uses: actions/setup-python@v4
         with: #с какой версией
-          python-version: "3.9"
+          python-version: "3.10"
       - name: Install Chrome #Установить хром
         run: sudo apt-get install google-chrome-stable
       - name: install dependencies #Установить зависимости из указанного файла
