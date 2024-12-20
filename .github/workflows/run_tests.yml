@@ -5,11 +5,11 @@ on:
 
 jobs: #это задачи, которые будут выполнятся
   test: #сама задача - потестить
-    runs-on: ubuntu-22.04 #запустить на убунту последней
+    runs-on: ubuntu-latest #запустить на убунту последней
 
     steps:
       - name: Checkout repository #на убунту нужно скачать весь репозиторий
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.1.6
       - name: setup Python #Установить питон
         uses: actions/setup-python@v4
         with: #с какой версией
